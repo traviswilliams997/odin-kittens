@@ -17,7 +17,7 @@ class KittensController < ApplicationController
     if @kitten.save
       redirect_to @kitten , notice: "New kitten added"
     else
-      render :new, status: :unprocessable_entity , flash.now[:notice] = "Kitten not added"
+      render :new, status: :unprocessable_entity 
     end
 
   end
@@ -33,10 +33,9 @@ class KittensController < ApplicationController
     if @kitten.update
       redirect_to @kitten , notice: "Kitten changed"
     else
-      render :edit, status: :unprocessable_entity , flash.now[:notice] = "Kitten not updated"
+      render :edit, status: :unprocessable_entity 
     end
-
-
+    
   end
 
   def destroy
@@ -50,4 +49,5 @@ class KittensController < ApplicationController
   def kitten_params
     params.require(:kitten).permit(:name, :age, :cuteness, :softness)
   end 
+
 end
