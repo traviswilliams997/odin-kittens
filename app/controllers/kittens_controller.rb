@@ -30,12 +30,12 @@ class KittensController < ApplicationController
   def update
     @kitten = Kitten.find(params[:id])
 
-    if @kitten.update
+    if @kitten.update(kitten_params)
       redirect_to @kitten , notice: "Kitten changed"
     else
       render :edit, status: :unprocessable_entity 
     end
-    
+
   end
 
   def destroy
